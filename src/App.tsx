@@ -1,26 +1,37 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React,{useState,useEffect} from 'react'
+import Axios,{AxiosResponse} from "axios";
+import Keyboard from './components/Keyboard';
+import Input from './components/Input';
+import Menu from './components/Menu';
+import style from "./App.module.scss";
 
-function App() {
+const App = () => {
+  const [getData, setData] = useState<[string,any]| any>();
+   const handleData = async() => {
+      try{
+         const response = await Axios.get<string[]>("../data/data.json")
+         .then((res:AxiosResponse) => {
+            setData((prev:any) => {
+               prev = res.data
+               return prev
+            })
+         })
+         return response
+      }catch(e) {
+         console.log(e)
+      }
+   }
+   useEffect(() => {
+      handleData()
+   },[])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={style.container}>
+      <Menu />
+      <Input />
+      <Keyboard getData={getData}/>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

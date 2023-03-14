@@ -1,0 +1,34 @@
+.key {
+   width : 60px;
+   height: 60px;
+   margin: 5px;
+   font-size: 1rem;
+   background-color: #fff;
+   color :grey;
+   cursor: pointer;
+   border-radius: 4px;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   flex-wrap: wrap;
+   transition: 0.3s;
+   &.Tab {
+      width: 100px;
+   }
+   &.Enter {
+      width :120px;
+   }
+   &.Shift {
+      width :145px;
+   }
+   &.Space {
+      width: 400px;
+   }
+   &.Command {
+      width : 80px;
+   }
+   &:hover {
+      background-color: lightgray;
+   }
+}
