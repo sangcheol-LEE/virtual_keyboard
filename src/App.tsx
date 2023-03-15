@@ -26,11 +26,11 @@ const App = () => {
    },[])
 
   return (
-    <div className={style.container}>
-      <Menu />
-      <Input />
-      <Keyboard getData={getData}/>
-    </div>
+      <div className={style.container}>
+        <Menu />
+        <Input />
+        <Keyboard getData={getData}/>
+      </div>
   )
 }
 
