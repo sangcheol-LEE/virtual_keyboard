@@ -2,7 +2,6 @@ import React,{useState,useEffect} from 'react'
 import Axios,{AxiosResponse} from "axios";
 import Keyboard from './components/Keyboard';
 import Input from './components/Input';
-import Menu from './components/Menu';
 import style from "./App.module.scss";
 
 const App = () => {
@@ -27,7 +26,6 @@ const App = () => {
 
   return (
       <div className={style.container}>
-        <Menu />
         <Input />
         <Keyboard getData={getData}/>
       </div>
